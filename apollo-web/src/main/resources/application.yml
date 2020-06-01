@@ -1,0 +1,11 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: apollo-client-server
+app:
+  ### portal 中新建 Application 的 AppId
+  id: test_1
+apollo:
+  ### configserver 的地址
+  meta: http://${configserver.host}:8080

@@ -1,0 +1,16 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: user-server
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    ### 客户端续约时间，默认：30s
+    lease-renewal-interval-in-seconds: 30
+    ### 发呆时间，默认：90s
+    lease-expiration-duration-in-seconds: 90
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.ip-address}:8000/eureka/,http://${eureka.instance.ip-address}:8001/eureka/,http://${eureka.instance.ip-address}:8002/eureka/

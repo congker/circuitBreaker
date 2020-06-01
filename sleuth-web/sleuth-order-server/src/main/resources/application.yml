@@ -1,0 +1,20 @@
+server:
+  port: 8600
+spring:
+  application:
+    name: order-server
+  ### 配置 zipkin 服务的地址
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      ### 配置 sleuth 的请求抽样比例，推送给 Zipkin。分为：抽样收集和每个请求都收集。默认：0.1，收集 1/10 请求作为样本。1.0-收集全部请求
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.ip-address}:8000/eureka/,http://${eureka.instance.ip-address}:8001/eureka/,http://${eureka.instance.ip-address}:8002/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
